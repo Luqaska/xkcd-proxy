@@ -8,6 +8,14 @@ if(isset($_GET["last"])){
     shell_exec("curl -o tmp/comic ".$api->{"img"});
     header("Content-Type: ".mime_content_type("tmp/comic"));
     die(file_get_contents("tmp/comic"));
+  }elseif(isset($_GET["title"])){
+    $api = json_decode($dld);
+    header("Content-Type: text/plain");
+    die($api->{"title"});
+  }elseif(isset($_GET["safe_title"])){
+    $api = json_decode($dld);
+    header("Content-Type: text/plain");
+    die($api->{"safe_title"});
   }else{
     header("Content-Type: application/json");
     die(file_get_contents("tmp/info.json"));
@@ -24,6 +32,14 @@ if(isset($_GET["last"])){
         shell_exec("curl -o tmp/comic ".$api->{"img"});
         header("Content-Type: ".mime_content_type("tmp/comic"));
         die(file_get_contents("tmp/comic"));
+        }elseif(isset($_GET["title"])){
+          $api = json_decode($dld);
+          header("Content-Type: text/plain");
+          die($api->{"title"});
+        }elseif(isset($_GET["safe_title"])){
+          $api = json_decode($dld);
+          header("Content-Type: text/plain");
+          die($api->{"safe_title"});
       }else{
         header("Content-Type: application/json");
         die(file_get_contents("tmp/info.json"));
